@@ -4,5 +4,4 @@ node_modules
 .eslintignore
 .prettierignore
 package-lock.json
-.gitignore
 dist
