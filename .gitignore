@@ -1,6 +1,8 @@
-package-lock.json
-node_modules
 .vscode
+node_modules
 .eslintrc.json
-.babelrc.js
+.eslintignore
+.prettierignore
+package-lock.json
+.gitignore
 dist

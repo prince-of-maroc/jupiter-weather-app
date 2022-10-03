@@ -1,34 +1,40 @@
 {
-    "name": "weather-app",
-    "version": "1.0.0",
-    "description": "",
-    "main": "index.js",
-    "scripts": {
-        "build": "webpack --config webpack.config.js",
-        "start": "",
-        "lint": "npx eslint ./src/index.js"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/prince-of-maroc/weather-app.git"
-    },
-    "keywords": [],
-    "author": "@prince-of-maroc",
-    "license": "MIT",
-    "bugs": {
-        "url": "https://github.com/prince-of-maroc/weather-app/issues"
-    },
-    "homepage": "https://github.com/prince-of-maroc/weather-app#readme",
-    "devDependencies": {
-        "@babel/core": "^7.19.1",
-        "@babel/preset-env": "^7.19.1",
-        "babel-loader": "^8.2.5",
-        "eslint": "^8.24.0",
-        "eslint-config-prettier": "^8.5.0",
-        "webpack": "^5.74.0",
-        "webpack-cli": "^4.10.0"
-    },
-    "prettier": {
-        "tabWidth": 4
-    }
+  "name": "weather-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack --config ./webpack/webpack.config.js",
+    "start": "webpack-dev-server --config ./webpack/webpack.config.js --open-app-name 'Google Chrome'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/prince-of-maroc/weather-app.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/prince-of-maroc/weather-app/issues"
+  },
+  "homepage": "https://github.com/prince-of-maroc/weather-app#readme",
+  "devDependencies": {
+    "@babel/core": "^7.19.3",
+    "@babel/preset-env": "^7.19.3",
+    "babel-loader": "^8.2.5",
+    "css-loader": "^6.7.1",
+    "eslint": "^8.24.0",
+    "eslint-config-prettier": "^8.5.0",
+    "html-webpack-plugin": "^5.5.0",
+    "prettier": "^2.7.1",
+    "sass-loader": "^13.0.2",
+    "style-loader": "^3.3.1",
+    "webpack": "^5.74.0",
+    "webpack-cli": "^4.10.0",
+    "webpack-dev-server": "^4.11.1"
+  },
+  "prettier": {
+    "tabWidth": 4
+  },
+  "browserslist": ["Last 5 Chrome Versions"]
 }
