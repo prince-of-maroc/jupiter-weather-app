@@ -1,4 +1,4 @@
-export default function getTemperature(data) {
-    const temp = Math.round(data.main.temp);
-    console.log(`${temp}°`);
+export default async function getTemperature(data) {
+    const temp = await Math.round(data.main.temp);
+    return `${temp}°`;
 }
