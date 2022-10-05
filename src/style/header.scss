@@ -1,0 +1,20 @@
+header {
+    display: flex;
+    flex-direction: column;
+    .upper,
+    .lower {
+        display: flex;
+        flex-direction: row;
+    }
+}
+
+.upper {
+    padding: 10px 20px;
+    h1 {
+        flex-grow: 1;
+    }
+}
+
+.lower {
+    justify-content: center;
+}

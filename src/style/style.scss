@@ -1,4 +1,9 @@
-body {
-    background-image: url("../assets/valley.jpg");
-    background-size: cover;
+// General Styling
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
 }
+
+// Import all other styles
+@import "./header.scss";
