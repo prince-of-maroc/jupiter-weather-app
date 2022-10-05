@@ -1,6 +1,6 @@
 export default async function getWeatherData(units, city, country, state) {
-    let response;
     const u = units == "F" ? "imperial" : "metric";
+    let response;
     if (state) {
         response = await fetch(
             `https://api.openweathermap.org/data/2.5/weather?q=${city},${country},${state}&units=${u}&appid=1a96bd0316e7aa5f290b2d5c4f190c97`

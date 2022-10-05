@@ -1,7 +1,6 @@
+import "../style/style.scss";
 import getTemperature from "./modules/get-temperature.js";
 import getWeatherData from "./modules/get-weather-data.js";
-
-getWeatherData("F", "new york city").then((data) => getTemperature(data));
 
 const input = document.querySelector("input");
 const cityName = document.querySelector("h1");
