@@ -15,9 +15,14 @@ header {
 }
 
 .upper {
-    padding: 0px 20px;
-    h1 {
+    padding: 0px 10px;
+    .logo {
         flex-grow: 1;
+        display: flex;
+        gap: 10px;
+        img {
+            width: 50px;
+        }
     }
 }
 

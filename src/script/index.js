@@ -1,6 +1,9 @@
 import "../style/style.scss";
 import getTemperature from "./modules/get-temperature.js";
 import getWeatherData from "./modules/get-weather-data.js";
+import setImages from "./modules/set-images.js";
+
+setImages();
 
 const input = document.querySelector("input");
 const cityName = document.querySelector("h1");
