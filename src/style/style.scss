@@ -8,6 +8,15 @@
     box-sizing: border-box;
     font-family: "Poppins";
 }
+html,
+body {
+    height: 100%;
+}
+body {
+    display: flex;
+    flex-direction: column;
+}
 
 // Import all other styles
 @import "./header.scss";
+@import "./main.scss";
