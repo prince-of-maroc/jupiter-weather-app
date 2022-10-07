@@ -10,8 +10,12 @@ header {
         display: flex;
         flex-direction: row;
     }
-    background-color: #784ba0;
-    background-image: linear-gradient(198deg, #784ba0 32%, #2b86c5 98%);
+    background-image: linear-gradient(
+        to bottom,
+        rgb(73, 10, 80),
+        rgb(203, 42, 200),
+        transparent
+    );
 }
 
 .upper {
@@ -34,4 +38,9 @@ header {
     i {
         position: absolute;
     }
+}
+
+.border {
+    height: 10px;
+    background-color: transparent;
 }
