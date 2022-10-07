@@ -43,3 +43,19 @@ header {
 .border {
     height: 80px;
 }
+
+.upper input {
+    border: solid 3px white;
+    background-color: rgb(116, 26, 126);
+    color: white;
+    padding: 5px 15px;
+    border-radius: 25px;
+    font-size: 1rem;
+    width: min(30vw, 350px);
+    &:focus {
+        outline: none;
+    }
+    &::placeholder {
+        color: rgba(255, 255, 255, 0.482);
+    }
+}
