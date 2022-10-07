@@ -28,15 +28,24 @@ header {
             width: 50px;
         }
     }
+    i {
+        padding: 0 15px;
+        font-size: 3rem;
+        cursor: pointer;
+        &:hover {
+            color: rgb(219, 219, 219);
+        }
+    }
 }
 
 .lower {
     justify-content: center;
+    gap: 30px;
     h1 {
-        font-size: 5rem;
+        font-size: 4rem;
     }
     i {
-        position: absolute;
+        font-size: 4rem;
     }
 }
 
@@ -58,4 +67,8 @@ header {
     &::placeholder {
         color: rgba(255, 255, 255, 0.482);
     }
+}
+
+i {
+    align-self: center;
 }
