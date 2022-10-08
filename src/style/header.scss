@@ -3,19 +3,31 @@ header {
     padding: 15px;
     gap: 20px;
     flex-direction: column;
+    position: relative;
 
     color: white;
     .upper,
     .lower {
+        z-index: 1;
         display: flex;
         flex-direction: row;
     }
+}
+
+.gradient {
+    position: absolute;
+    top: 0;
+    bottom: -25px;
+    right: 0;
+    left: 0;
     background-image: linear-gradient(
-        to bottom,
-        rgb(74, 9, 81),
-        rgb(170, 23, 167),
-        transparent
+        315deg,
+        #ff3cac 0%,
+        #784ba0 50%,
+        #2b86c5 100%
     );
+    -webkit-mask-image: linear-gradient(rgba(0, 0, 0, 0.786) 60%, transparent);
+    mask-image: linear-gradient(black 60%, transparent);
 }
 
 .upper {
@@ -50,10 +62,6 @@ header {
     }
 }
 
-.border {
-    height: 80px;
-}
-
 .upper input {
     border: solid 3px white;
     background-color: rgb(116, 26, 126);
@@ -72,4 +80,8 @@ header {
 
 i {
     align-self: center;
+}
+
+.border {
+    height: 20p;
 }
