@@ -17,6 +17,7 @@ export default function getCityTime(offset) {
 
     // Manipulate data into string
     let hrs;
+    let mins;
     let meridiem;
     if (cityTimeObj.getHours() > 12) {
         hrs = cityTimeObj.getHours() - 12;
@@ -28,5 +29,8 @@ export default function getCityTime(offset) {
         hrs = cityTimeObj.getHours();
         meridiem = "AM";
     }
-    return `${hrs}:${cityTimeObj.getMinutes()} ${meridiem}`;
+    if (cityTimeObj.getMinutes() < 10) {
+        mins = "0" + cityTimeObj.getMinutes();
+    }
+    return `${hrs}:${mins} ${meridiem}`;
 }
