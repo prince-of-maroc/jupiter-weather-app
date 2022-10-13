@@ -12,7 +12,7 @@ export default async function getWeatherData(units, city, country, state) {
     } else {
         response = await fetch(
             `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=${u}&appid=1a96bd0316e7aa5f290b2d5c4f190c97`
-        );
+        ).catch("Error");
     }
     const jsonResponse = await response.json();
     return jsonResponse;
