@@ -31,6 +31,8 @@ export default function getCityTime(offset) {
     }
     if (cityTimeObj.getMinutes() < 10) {
         mins = "0" + cityTimeObj.getMinutes();
+    } else {
+        mins = cityTimeObj.getMinutes();
     }
     return `${hrs}:${mins} ${meridiem}`;
 }
