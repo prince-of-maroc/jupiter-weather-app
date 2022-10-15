@@ -30,7 +30,7 @@ searchbar.addEventListener("keypress", (e) => {
             console.log(obj);
             city.innerText = obj.name;
             displayedTemp = obj.main.temp;
-            getTemperature(obj).then((t) => (temp.textContent = t));
+            temp.textContent = `${Math.round(obj.main.temp)}°`;
             extraData.innerText = `Expect ${Math.round(
                 obj.wind.speed
             )}mph ${getDirection(obj.wind.deg)} winds today.`;
