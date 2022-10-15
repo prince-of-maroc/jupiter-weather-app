@@ -12,6 +12,8 @@ const city = document.querySelector(".lower h1");
 const temp = document.querySelector(".weather h1");
 const extraData = document.querySelector(".weather h2");
 const time = document.querySelector(".time");
+let unit = "F";
+let displayedTemp;
 
 let offset;
 (function refreshTime() {
@@ -23,10 +25,11 @@ let offset;
 
 searchbar.addEventListener("keypress", (e) => {
     if (e.key == "Enter") {
-        getWeatherData("F", searchbar.value).then((obj) => {
+        getWeatherData(unit, searchbar.value).then((obj) => {
             time.style.opacity = 1;
             console.log(obj);
             city.innerText = obj.name;
+            displayedTemp = obj.main.temp;
             getTemperature(obj).then((t) => (temp.textContent = t));
             extraData.innerText = `Expect ${Math.round(
                 obj.wind.speed
@@ -37,3 +40,25 @@ searchbar.addEventListener("keypress", (e) => {
         e.preventDefault();
     }
 });
+
+const scale = document.querySelector(".unit");
+scale.addEventListener("click", () => {
+    if (unit == "F") {
+        scale.innerText = "°C";
+        unit = "C";
+        temp.textContent = `${convertTemperatureScale("F")}°`;
+    } else {
+        scale.innerText = "°F";
+        unit = "F";
+        temp.textContent = `${convertTemperatureScale("C")}°`;
+    }
+});
+
+function convertTemperatureScale(unit) {
+    if (unit == "C") {
+        displayedTemp = displayedTemp * (9 / 5) + 32;
+    } else {
+        displayedTemp = (displayedTemp - 32) * (5 / 9);
+    }
+    return Math.round(displayedTemp);
+}
