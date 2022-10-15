@@ -20,13 +20,14 @@ let offset;
     time.innerText = getCityTime(offset);
     setTimeout(function () {
         refreshTime();
-    }, 1000);
+    }, 0);
 })();
 
 searchbar.addEventListener("keypress", (e) => {
     if (e.key == "Enter") {
         getWeatherData(unit, searchbar.value).then((obj) => {
             time.style.opacity = 1;
+            temp.style.opacity = 1;
             console.log(obj);
             city.innerText = obj.name;
             displayedTemp = obj.main.temp;
