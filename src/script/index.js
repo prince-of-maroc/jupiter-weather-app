@@ -13,15 +13,13 @@ const temp = document.querySelector(".weather h1");
 const extraData = document.querySelector(".weather h2");
 const time = document.querySelector(".time");
 
-let offset = 0;
-
-function setTime() {
+let offset;
+(function refreshTime() {
     time.innerText = getCityTime(offset);
     setTimeout(function () {
-        setTime();
+        refreshTime();
     }, 1000);
-}
-setTime();
+})();
 
 searchbar.addEventListener("keypress", (e) => {
     if (e.key == "Enter") {
