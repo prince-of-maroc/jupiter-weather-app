@@ -1,9 +1,9 @@
 import "../style/style.scss";
 import setImages from "./modules/set-images.js";
 import getWeatherData from "./modules/get-weather-data.js";
-import getTemperature from "./modules/get-temperature.js";
 import getDirection from "./modules/get-direction.js";
 import getCityTime from "./modules/get-city-time.js";
+import convertTemperatureScale from "./modules/convert-temp-scale.js";
 
 setImages();
 
@@ -41,24 +41,17 @@ searchbar.addEventListener("keypress", (e) => {
     }
 });
 
-const scale = document.querySelector(".unit");
-scale.addEventListener("click", () => {
+const changeUnitButton = document.querySelector(".unit");
+changeUnitButton.addEventListener("click", () => {
     if (unit == "F") {
-        scale.innerText = "°C";
+        changeUnitButton.innerText = "°C";
         unit = "C";
-        temp.textContent = `${convertTemperatureScale("F")}°`;
+        displayedTemp = convertTemperatureScale("F", displayedTemp);
+        temp.textContent = `${displayedTemp}°`;
     } else {
-        scale.innerText = "°F";
+        changeUnitButton.innerText = "°F";
         unit = "F";
-        temp.textContent = `${convertTemperatureScale("C")}°`;
+        displayedTemp = convertTemperatureScale("C", displayedTemp);
+        temp.textContent = `${displayedTemp}°`;
     }
 });
-
-function convertTemperatureScale(unit) {
-    if (unit == "C") {
-        displayedTemp = displayedTemp * (9 / 5) + 32;
-    } else {
-        displayedTemp = (displayedTemp - 32) * (5 / 9);
-    }
-    return Math.round(displayedTemp);
-}
