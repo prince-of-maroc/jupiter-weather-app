@@ -32,9 +32,11 @@ searchbar.addEventListener("keypress", (e) => {
             city.innerText = obj.name;
             displayedTemp = obj.main.temp;
             temp.textContent = `${Math.round(obj.main.temp)}°`;
-            extraData.innerText = `Expect ${Math.round(
-                obj.wind.speed
-            )}mph ${getDirection(obj.wind.deg)} winds today.`;
+            extraData.innerText = `Expect ${
+                obj.weather[0].description
+            } and ${Math.round(obj.wind.speed)}mph ${getDirection(
+                obj.wind.deg
+            )} winds today.`;
             offset = obj.timezone * 1000;
         });
         searchbar.value = "";
