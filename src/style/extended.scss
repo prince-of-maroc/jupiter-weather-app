@@ -1,0 +1,18 @@
+.extended {
+    height: 150px;
+    backdrop-filter: blur(3px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .cards {
+        display: flex;
+        gap: 25px;
+    }
+}
+
+.card {
+    padding: 25px;
+    height: 125px;
+    width: 80px;
+    background-color: rgba(255, 255, 255, 0.512);
+}
