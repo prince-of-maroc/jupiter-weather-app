@@ -19,6 +19,25 @@
     width: max(80px, 50%);
     background-color: rgba(255, 255, 255, 0.512);
     border-radius: 25px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    position: relative;
+
+    img {
+        max-width: 80%;
+    }
+    span {
+        font-size: 1.5rem;
+    }
+    p {
+        position: absolute;
+        top: -30px;
+        font-size: 1.5rem;
+        left: 10px;
+        color: white;
+        text-shadow: 3px 3px 10px black;
+    }
 }
 
 @media only screen and (max-width: 900px) {
