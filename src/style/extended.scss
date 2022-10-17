@@ -7,7 +7,7 @@
         gap: 25px;
         width: 100%;
         padding: 10px;
-        #center {
+        #hour3 {
             margin-right: 50px;
         }
     }
@@ -22,11 +22,11 @@
 }
 
 @media only screen and (max-width: 900px) {
-    #center,
-    #right-center {
+    #hour3,
+    #day3 {
         display: none;
     }
-    #middle {
+    #hour2 {
         margin-right: 50px;
     }
 }
