@@ -8,6 +8,8 @@ import convertTemperatureScale from "./modules/convert-temp-scale.js";
 setImages();
 
 const searchbar = document.querySelector("input");
+const changeUnitButton = document.querySelector(".unit");
+
 const city = document.querySelector(".lower h1");
 const temp = document.querySelector(".weather h1");
 const extraData = document.querySelector(".weather h2");
@@ -44,7 +46,6 @@ searchbar.addEventListener("keypress", (e) => {
     }
 });
 
-const changeUnitButton = document.querySelector(".unit");
 changeUnitButton.addEventListener("click", () => {
     if (unit == "F") {
         changeUnitButton.innerText = "°C";
