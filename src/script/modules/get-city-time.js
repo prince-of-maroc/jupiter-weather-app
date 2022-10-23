@@ -1,4 +1,5 @@
-function convertDateToUTC(date) {
+function getUTC() {
+    let date = new Date();
     return new Date(
         date.getUTCFullYear(),
         date.getUTCMonth(),
@@ -11,9 +12,7 @@ function convertDateToUTC(date) {
 
 export default function getCityTime(offset) {
     // Get city time
-    let current = new Date();
-    let currentUTC = convertDateToUTC(current);
-    let cityTimeObj = new Date(currentUTC.getTime() + offset);
+    let cityTimeObj = new Date(getUTC().getTime() + offset);
 
     // Manipulate data into string
     let hrs;
