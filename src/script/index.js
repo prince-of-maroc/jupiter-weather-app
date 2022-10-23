@@ -4,6 +4,9 @@ import getCurrentWeather from "./modules/get-current-weather.js";
 import getDirection from "./modules/get-direction.js";
 import getCityTime from "./modules/get-city-time.js";
 import convertTemperatureScale from "./modules/convert-temp-scale.js";
+import getThreeDayForecast from "./modules/three-day.js";
+import getThreeHourForecast from "./modules/three-hour.js";
+import getForecastData from "./modules/get-forecast.js";
 
 setImages();
 
@@ -53,21 +56,16 @@ searchbar.addEventListener("keypress", (e) => {
                 };
             })
             .then((coordinates) => {
-                fetch(
-                    `https://api.open-meteo.com/v1/forecast?latitude=${coordinates.latitude}&longitude=${coordinates.longitude}&hourly=temperature_2m&temperature_unit=fahrenheit`
-                )
-                    .then((r) => r.json())
-                    .then((r) => {
-                        console.log(r);
-                        let hourlyTemps = r.hourly.temperature_2m;
-                        let threeDayForecast = getThreeDayForecast(
-                            hourlyTemps,
-                            offset
-                        );
-                        let threeHourForecast =
-                            getThreeHourForecast(hourlyTemps);
-                        console.log(threeDayForecast, threeHourForecast);
-                    });
+                getForecastData(coordinates).then((r) => {
+                    console.log(r);
+                    let hourlyTemps = r.hourly.temperature_2m;
+                    let threeDayForecast = getThreeDayForecast(
+                        hourlyTemps,
+                        offset
+                    );
+                    let threeHourForecast = getThreeHourForecast(hourlyTemps);
+                    console.log(threeDayForecast, threeHourForecast);
+                });
             });
         searchbar.value = "";
         e.preventDefault();
@@ -91,70 +89,3 @@ changeUnitButton.addEventListener("click", () => {
 jupiterLogo.addEventListener("click", () => {
     window.location.reload();
 });
-
-function getUTC() {
-    let date = new Date();
-    return new Date(
-        date.getUTCFullYear(),
-        date.getUTCMonth(),
-        date.getUTCDate(),
-        date.getUTCHours(),
-        date.getUTCMinutes(),
-        date.getUTCSeconds()
-    );
-}
-
-function getHighLow(arr, start, end) {
-    let high = arr[start];
-    let low = arr[start];
-    for (let i = start; i < end; i++) {
-        if (arr[i] > high) {
-            high = arr[i];
-        } else if (arr[i] < low) {
-            low = arr[i];
-        }
-    }
-    return [high, low];
-}
-
-function getThreeDayForecast(arr, offset) {
-    let currentHourIndex = getUTC().getHours();
-
-    let UTC = getUTC().getTime();
-    let cityDate = new Date(UTC + offset);
-    let currentHr = cityDate.getHours();
-    let hrsTillNewDay = 24 - currentHr;
-
-    let tomorrowStart = currentHourIndex + hrsTillNewDay;
-    let tomorrowEnd = currentHourIndex + hrsTillNewDay + 24;
-    let twoDayEnd = tomorrowEnd + 24;
-    let threeDayEnd = twoDayEnd + 24;
-
-    let dayOne = getHighLow(arr, tomorrowStart, tomorrowEnd);
-    let dayTwo = getHighLow(arr, tomorrowEnd, twoDayEnd);
-    let dayThree = getHighLow(arr, twoDayEnd, threeDayEnd);
-
-    return [
-        {
-            high: dayOne[0],
-            low: dayOne[1],
-        },
-        {
-            high: dayTwo[0],
-            low: dayTwo[1],
-        },
-        {
-            high: dayThree[0],
-            low: dayThree[1],
-        },
-    ];
-}
-
-function getThreeHourForecast(arr) {
-    let currentHourIndex = getUTC().getHours();
-    return [
-        arr[currentHourIndex + 1],
-        arr[currentHourIndex + 2],
-        arr[currentHourIndex + 3],
-    ];
-}
