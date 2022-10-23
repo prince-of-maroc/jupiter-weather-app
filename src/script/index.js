@@ -1,6 +1,6 @@
 import "../style/style.scss";
 import setImages from "./modules/set-images.js";
-import getWeatherData from "./modules/get-weather-data.js";
+import getCurrentWeather from "./modules/get-current-weather.js";
 import getDirection from "./modules/get-direction.js";
 import getCityTime from "./modules/get-city-time.js";
 import convertTemperatureScale from "./modules/convert-temp-scale.js";
@@ -22,12 +22,12 @@ let offset;
     time.innerText = getCityTime(offset);
     setTimeout(function () {
         refreshTime();
-    }, 0);
+    }, 1000);
 })();
 
 searchbar.addEventListener("keypress", (e) => {
     if (e.key == "Enter") {
-        getWeatherData(unit, searchbar.value).then((obj) => {
+        getCurrentWeather(unit, searchbar.value).then((obj) => {
             time.style.opacity = 1;
             temp.style.opacity = 1;
             console.log(obj);

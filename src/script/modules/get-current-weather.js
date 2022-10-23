@@ -1,4 +1,4 @@
-export default async function getWeatherData(units, city, country, state) {
+export default async function getCurrentWeather(units, city, country, state) {
     const u = units == "F" ? "imperial" : "metric";
     let response;
     if (state) {
