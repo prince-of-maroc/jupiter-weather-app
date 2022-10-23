@@ -9,6 +9,7 @@ setImages();
 
 const searchbar = document.querySelector("input");
 const changeUnitButton = document.querySelector(".unit");
+const jupiterLogo = document.querySelector(".jupiter");
 
 const city = document.querySelector(".lower h1");
 const temp = document.querySelector(".weather h1");
@@ -58,4 +59,8 @@ changeUnitButton.addEventListener("click", () => {
         displayedTemp = convertTemperatureScale("C", displayedTemp);
         temp.textContent = `${displayedTemp}°`;
     }
+});
+
+jupiterLogo.addEventListener("click", () => {
+    window.location.reload();
 });
