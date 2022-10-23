@@ -33,11 +33,18 @@ header {
 .upper {
     padding: 0px 10px;
     .logo {
+        user-select: none;
         flex-grow: 1;
         display: flex;
         gap: 10px;
         img {
             width: 50px;
+            transition: 300ms;
+            &:hover {
+                color: rgb(224, 219, 219);
+                cursor: pointer;
+                transform: scale(1.2);
+            }
         }
     }
     .unit {
