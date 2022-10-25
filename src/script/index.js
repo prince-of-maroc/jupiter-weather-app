@@ -104,16 +104,27 @@ searchbar.addEventListener("keypress", (e) => {
 });
 
 changeUnitButton.addEventListener("click", () => {
+    let cardSpans = document.querySelectorAll(".card span");
     if (unit == "F") {
         changeUnitButton.innerText = "°C";
         unit = "C";
         displayedTemp = convertTemperatureScale("F", displayedTemp);
         temp.textContent = `${displayedTemp}°`;
+        cardSpans.forEach((span) => {
+            let temp = parseInt(span.innerText);
+            let convertedTemp = convertTemperatureScale("F", +temp);
+            span.innerText = convertedTemp + "°";
+        });
     } else {
         changeUnitButton.innerText = "°F";
         unit = "F";
         displayedTemp = convertTemperatureScale("C", displayedTemp);
         temp.textContent = `${displayedTemp}°`;
+        cardSpans.forEach((span) => {
+            let temp = parseInt(span.innerText);
+            let convertedTemp = convertTemperatureScale("C", +temp);
+            span.innerText = convertedTemp + "°";
+        });
     }
 });
 
