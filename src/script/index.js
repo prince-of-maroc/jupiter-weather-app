@@ -60,10 +60,10 @@ searchbar.addEventListener("keypress", (e) => {
                 };
             })
             .then((coordinates) => {
-                getForecastData(coordinates, "h").then((r) => {
+                getForecastData(unit, coordinates, "h").then((r) => {
                     let hourlyTemps = r.hourly.temperature_2m;
                     let weathercodes = r.hourly.weathercode;
-                    getForecastData(coordinates, "d").then((r) => {
+                    getForecastData(unit, coordinates, "d").then((r) => {
                         let threeDayForecast = getThreeDayForecast(
                             hourlyTemps,
                             offset
