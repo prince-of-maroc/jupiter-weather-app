@@ -7,6 +7,7 @@ import convertTemperatureScale from "./modules/convert-temp-scale.js";
 import getThreeDayForecast from "./modules/three-day.js";
 import getThreeHourForecast from "./modules/three-hour.js";
 import getForecastData from "./modules/get-forecast.js";
+import setWeatherIcon from "./modules/set-icon.js";
 
 setImages();
 
@@ -56,15 +57,44 @@ searchbar.addEventListener("keypress", (e) => {
                 };
             })
             .then((coordinates) => {
-                getForecastData(coordinates).then((r) => {
-                    console.log(r);
+                getForecastData(coordinates, "h").then((r) => {
                     let hourlyTemps = r.hourly.temperature_2m;
-                    let threeDayForecast = getThreeDayForecast(
-                        hourlyTemps,
-                        offset
-                    );
-                    let threeHourForecast = getThreeHourForecast(hourlyTemps);
-                    console.log(threeDayForecast, threeHourForecast);
+                    let weathercodes = r.hourly.weathercode;
+                    getForecastData(coordinates, "d").then((r) => {
+                        let threeDayForecast = getThreeDayForecast(
+                            hourlyTemps,
+                            offset
+                        );
+                        let threeHourForecast = getThreeHourForecast(
+                            hourlyTemps,
+                            weathercodes
+                        );
+                        let hourlyCards = Array.from(
+                            document.querySelectorAll(".hcard")
+                        );
+                        let dailyCards = Array.from(
+                            document.querySelectorAll(".dcard")
+                        );
+                        let dailycodes = r.daily.weathercode;
+
+                        for (let i = 0; i < 3; i++) {
+                            let hcard = hourlyCards[i];
+                            let hspan = hcard.querySelector("span");
+                            let hweathercode = threeHourForecast[i].weathercode;
+                            setWeatherIcon(hcard, hweathercode);
+                            hspan.innerText = threeHourForecast[i].temperature;
+
+                            let dcard = dailyCards[i];
+                            let dspan = dcard.querySelector("span");
+                            let dweathercode = dailycodes[i + 1];
+                            setWeatherIcon(dcard, dweathercode);
+                            dspan.innerText =
+                                threeDayForecast[i].high +
+                                "|" +
+                                threeDayForecast[i].low;
+                        }
+                        console.log(r);
+                    });
                 });
             });
         searchbar.value = "";
