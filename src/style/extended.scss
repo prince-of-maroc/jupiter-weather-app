@@ -25,10 +25,12 @@
     position: relative;
 
     img {
-        max-width: 80%;
+        max-width: 60%;
     }
     span {
-        font-size: 1.5rem;
+        font-size: 2.5rem;
+        color: white;
+        text-shadow: 3px 3px 10px black;
     }
     p {
         position: absolute;
@@ -47,5 +49,11 @@
     }
     #hour2 {
         margin-right: 50px;
+    }
+}
+
+@media only screen and (max-width: 1300px) {
+    .card span {
+        font-size: 1.5rem;
     }
 }

@@ -82,16 +82,17 @@ searchbar.addEventListener("keypress", (e) => {
                             let hspan = hcard.querySelector("span");
                             let hweathercode = threeHourForecast[i].weathercode;
                             setWeatherIcon(hcard, hweathercode);
-                            hspan.innerText = threeHourForecast[i].temperature;
+                            hspan.innerText =
+                                threeHourForecast[i].temperature + "°";
 
                             let dcard = dailyCards[i];
-                            let dspan = dcard.querySelector("span");
+                            let dspans = dcard.querySelectorAll("span");
                             let dweathercode = dailycodes[i + 1];
                             setWeatherIcon(dcard, dweathercode);
-                            dspan.innerText =
-                                threeDayForecast[i].high +
-                                "|" +
-                                threeDayForecast[i].low;
+                            dspans[0].innerText =
+                                Math.round(threeDayForecast[i].high) + "°";
+                            dspans[1].innerText =
+                                Math.round(threeDayForecast[i].low) + "°";
                         }
                         console.log(r);
                     });
