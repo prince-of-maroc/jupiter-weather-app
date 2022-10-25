@@ -19,6 +19,7 @@ const city = document.querySelector(".lower h1");
 const temp = document.querySelector(".weather h1");
 const extraData = document.querySelector(".weather h2");
 const time = document.querySelector(".time");
+const forecastCards = document.querySelector(".extended");
 let unit = "F";
 let displayedTemp;
 
@@ -36,6 +37,8 @@ searchbar.addEventListener("keypress", (e) => {
         getCurrentWeather(unit, searchbar.value).then((obj) => {
             time.style.opacity = 1;
             temp.style.opacity = 1;
+            forecastCards.style.display = "block";
+
             console.log(obj);
             city.innerText = obj.name;
             displayedTemp = obj.main.temp;
