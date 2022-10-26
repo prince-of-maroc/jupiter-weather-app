@@ -43,6 +43,25 @@
     }
 }
 
+.expand {
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 15px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: 200ms;
+    i {
+        font-size: 3rem;
+        color: white;
+        text-shadow: 3px 3px 10px black;
+    }
+    &:hover {
+        transform: translateX(-50%) scale(1.1) translateY(-10px);
+    }
+}
+
 @media only screen and (max-width: 900px) {
     #hour3,
     #day3 {
