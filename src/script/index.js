@@ -14,6 +14,7 @@ setImages();
 const searchbar = document.querySelector("input");
 const changeUnitButton = document.querySelector(".unit");
 const expandButton = document.querySelector(".expand");
+const compressButton = document.querySelector(".compress");
 const jupiterLogo = document.querySelector(".jupiter");
 
 const city = document.querySelector(".lower h1");
@@ -139,6 +140,14 @@ expandButton.addEventListener("click", () => {
     expandButton.parentElement.style.display = "none";
     document.querySelector(".gradient").style.bottom = 0;
     document.querySelector(".gradient").style.webkitMaskImage = "none";
+});
+compressButton.addEventListener("click", () => {
+    detailedScreen.style.display = "none";
+    time.parentElement.style.display = "block";
+    expandButton.parentElement.style.display = "block";
+    document.querySelector(".gradient").style.bottom = "-25px";
+    document.querySelector(".gradient").style.webkitMaskImage =
+        "linear-gradient(rgba(0, 0, 0, 0.786) 60%, transparent)";
 });
 
 jupiterLogo.addEventListener("click", () => {
