@@ -8,6 +8,7 @@ import getThreeDayForecast from "./modules/three-day.js";
 import getThreeHourForecast from "./modules/three-hour.js";
 import getForecastData from "./modules/get-forecast.js";
 import setWeatherIcon from "./modules/set-icon.js";
+import toggleDetailWindow from "./dom/toggle-detailed.js";
 
 setImages();
 
@@ -135,25 +136,10 @@ changeUnitButton.addEventListener("click", () => {
 });
 
 expandButton.addEventListener("click", () => {
-    detailedScreen.style.display = "block";
-    time.parentElement.style.display = "none";
-    expandButton.parentElement.style.display = "none";
-    document.querySelector(".gradient").style.bottom = 0;
-    document.querySelector(".gradient").style.backgroundImage = "none";
-    document.querySelector(".gradient").style.webkitMaskImage = "none";
-    document.querySelector(".all").style.backgroundImage =
-        "linear-gradient(315deg,#ff3cac 0%, #784ba0 50%, #2b86c5 100% )";
+    toggleDetailWindow();
 });
 compressButton.addEventListener("click", () => {
-    detailedScreen.style.display = "none";
-    time.parentElement.style.display = "block";
-    expandButton.parentElement.style.display = "block";
-    document.querySelector(".gradient").style.bottom = "-25px";
-    document.querySelector(".gradient").style.webkitMaskImage =
-        "linear-gradient(rgba(0, 0, 0, 0.786) 60%, transparent)";
-    document.querySelector(".gradient").style.backgroundImage =
-        "linear-gradient(315deg,#ff3cac 0%, #784ba0 50%, #2b86c5 100% )";
-    document.querySelector(".all").style.backgroundImage = "none";
+    toggleDetailWindow();
 });
 
 jupiterLogo.addEventListener("click", () => {
