@@ -139,7 +139,10 @@ expandButton.addEventListener("click", () => {
     time.parentElement.style.display = "none";
     expandButton.parentElement.style.display = "none";
     document.querySelector(".gradient").style.bottom = 0;
+    document.querySelector(".gradient").style.backgroundImage = "none";
     document.querySelector(".gradient").style.webkitMaskImage = "none";
+    document.querySelector(".all").style.backgroundImage =
+        "linear-gradient(315deg,#ff3cac 0%, #784ba0 50%, #2b86c5 100% )";
 });
 compressButton.addEventListener("click", () => {
     detailedScreen.style.display = "none";
@@ -148,6 +151,9 @@ compressButton.addEventListener("click", () => {
     document.querySelector(".gradient").style.bottom = "-25px";
     document.querySelector(".gradient").style.webkitMaskImage =
         "linear-gradient(rgba(0, 0, 0, 0.786) 60%, transparent)";
+    document.querySelector(".gradient").style.backgroundImage =
+        "linear-gradient(315deg,#ff3cac 0%, #784ba0 50%, #2b86c5 100% )";
+    document.querySelector(".all").style.backgroundImage = "none";
 });
 
 jupiterLogo.addEventListener("click", () => {
