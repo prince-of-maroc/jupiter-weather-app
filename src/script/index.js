@@ -137,8 +137,8 @@ expandButton.addEventListener("click", () => {
     detailedScreen.style.display = "block";
     time.parentElement.style.display = "none";
     expandButton.parentElement.style.display = "none";
+    document.querySelector(".gradient").style.bottom = 0;
     document.querySelector(".gradient").style.webkitMaskImage = "none";
-    document.querySelector("gradient").style.bottom = 0;
 });
 
 jupiterLogo.addEventListener("click", () => {

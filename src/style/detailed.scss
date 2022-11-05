@@ -3,3 +3,20 @@
     background-color: white;
     display: none;
 }
+
+.compress {
+    display: flex;
+    justify-content: center;
+    color: white;
+    font-size: 3rem;
+    cursor: pointer;
+    i {
+        transform: rotate(180deg);
+        text-shadow: 3px 3px 10px black;
+        margin-top: 10px;
+        transition: 200ms;
+        &:hover {
+            transform: rotate(180deg) scale(1.2);
+        }
+    }
+}
