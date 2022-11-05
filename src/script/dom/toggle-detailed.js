@@ -3,7 +3,7 @@ export default function toggleDetailWindow() {
         !document.querySelector(".detailed").style.display ||
         document.querySelector(".detailed").style.display == "none"
     ) {
-        document.querySelector(".detailed").style.display = "block";
+        document.querySelector(".detailed").style.display = "flex";
         document.querySelector("main").style.display = "none";
         document.querySelector(".extended").style.display = "none";
         document.querySelector(".gradient").style.bottom = 0;
