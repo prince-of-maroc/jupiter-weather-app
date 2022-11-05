@@ -23,7 +23,6 @@ const temp = document.querySelector(".weather h1");
 const extraData = document.querySelector(".weather h2");
 const time = document.querySelector(".time");
 const forecastCards = document.querySelector(".extended");
-const detailedScreen = document.querySelector(".detailed");
 let unit = "F";
 let displayedTemp;
 
@@ -135,12 +134,8 @@ changeUnitButton.addEventListener("click", () => {
     }
 });
 
-expandButton.addEventListener("click", () => {
-    toggleDetailWindow();
-});
-compressButton.addEventListener("click", () => {
-    toggleDetailWindow();
-});
+expandButton.onclick = toggleDetailWindow;
+compressButton.onclick = toggleDetailWindow;
 
 jupiterLogo.addEventListener("click", () => {
     window.location.reload();
