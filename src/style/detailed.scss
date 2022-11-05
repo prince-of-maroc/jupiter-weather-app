@@ -35,6 +35,12 @@
     );
     width: min(80%);
     height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    img {
+        max-height: 80%;
+    }
 }
 
 @media only screen and (max-width: 1300px) {
