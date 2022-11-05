@@ -13,6 +13,7 @@ setImages();
 
 const searchbar = document.querySelector("input");
 const changeUnitButton = document.querySelector(".unit");
+const expandButton = document.querySelector(".expand");
 const jupiterLogo = document.querySelector(".jupiter");
 
 const city = document.querySelector(".lower h1");
@@ -20,6 +21,7 @@ const temp = document.querySelector(".weather h1");
 const extraData = document.querySelector(".weather h2");
 const time = document.querySelector(".time");
 const forecastCards = document.querySelector(".extended");
+const detailedScreen = document.querySelector(".detailed");
 let unit = "F";
 let displayedTemp;
 
@@ -129,6 +131,14 @@ changeUnitButton.addEventListener("click", () => {
             span.innerText = convertedTemp + "°";
         });
     }
+});
+
+expandButton.addEventListener("click", () => {
+    detailedScreen.style.display = "block";
+    time.parentElement.style.display = "none";
+    expandButton.parentElement.style.display = "none";
+    document.querySelector(".gradient").style.webkitMaskImage = "none";
+    document.querySelector("gradient").style.bottom = 0;
 });
 
 jupiterLogo.addEventListener("click", () => {
